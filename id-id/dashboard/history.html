@@ -1,0 +1,890 @@
+
+<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="rgba(30, 32, 34, 1)">
+  <base href="https://aksatopup.my.id/">
+  <title>Aksa - No #1 supplier top up game & voucher terlaris, murah, aman legal 100% buka 24 Jam dengan payment terlengkap Indonesia</title>
+  <meta name="description" content="No #1 supplier top up game & voucher terlaris, murah, aman legal 100% buka 24 Jam dengan payment terlengkap Indonesia">
+  <meta name="keywords" content="aksatopup, top up ml, topup mobile legends murah, diamon ml murah">
+  <meta name="author" content="aksatopup - Top Up Games Termurah #1 Indonesia">
+  <link rel="icon" type="image/x-icon" href="https://aksatopup.my.id/public/img/web/274577.png">
+
+  <!-- NEW CSS -->
+  <link rel="stylesheet" href="https://aksatopup.my.id/public/css/main.min.css">
+  <link rel="stylesheet" href="https://aksatopup.my.id/public/css/offcanvas.css">
+  <link rel="stylesheet" href="https://aksatopup.my.id/public/css/swiper.css">
+  <link rel="stylesheet" href="https://aksatopup.my.id/public/css/toastr.css">
+
+  <!-- NEW JS -->
+  <script src="https://aksatopup.my.id/public/js/bootstrap.js"></script>
+  <script src="https://aksatopup.my.id/public/js/jquery.js"></script>
+  <script src="https://aksatopup.my.id/public/js/swiper.js"></script>
+  <script src="https://aksatopup.my.id/public/js/toastr.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+  <style>
+    #searchResults {
+      display: none;
+      position: absolute;
+      width: 100%;
+      margin-top: 65px;
+      z-index: 999;
+      overflow: auto;
+      background: rgba(30, 32, 34, 1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    @media only screen and (min-width: 768px) {
+      #searchResults {
+        width: 100%;
+        margin-top: 27px;
+        padding: 0px 20px;
+        position: fixed;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    #searchInput:not(:placeholder-shown)+#searchResults {
+      display: block;
+    }
+
+    .search-result a {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    #backdrop {
+      backdrop-filter: blur(8px);
+    }
+
+    #static-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <style>
+    :root{--font-sans:'__IBM_Plex_Sans_Condensed_368570', '__IBM_Plex_Sans_Condensed_Fallback_368570';--font-bjcredits:'__Lexend_Deca_7fd41d', '__Lexend_Deca_Fallback_7fd41d';--font-chakra:'__Chakra_Petch_bde904', '__Chakra_Petch_Fallback_bde904';--flashsale-image: url('https://client-cdn.bangjeff.com/veinstore.id/meta/background.webp');
+--recommendation-background: 215.13 100% 37.84%;
+--popular-background: 215.56 21.6% 24.51%;
+--popular-image: url('https://client-cdn.bangjeff.com/veinstore.id/meta/background.webp');
+--product-background: 215.56 21.6% 24.51%;
+
+          --order-header: 215.56 21.6% 24.51%;
+--order-variant: 215.56 21.6% 24.51%;
+--order-variant-foreground: 0 0% 100%;
+--order-variant-image: url(https://client-cdn.bangjeff.com/veinstore.id/meta/background.webp);
+
+          --payment-card-background: 215.56 21.6% 24.51%;
+
+          --auth-image: url(https://client-cdn.bangjeff.com/veinstore.id/meta/20250109_182520.webp);
+
+          --background: 220 19.15% 9.22%;
+--foreground: 0 0% 96.08%;
+--card: 212 23.81% 12.35%;
+--card-foreground: 0 0% 96.08%;
+--popover: 192 9.8% 10%;
+--popover-foreground: 0 0% 96.08%;
+--primary: 36.61 100% 50.2%;
+--primary-foreground: 0 0% 96.08%;
+--secondary: 212 23.81% 12.35%;
+--secondary-foreground: 0 0% 96.08%;
+--muted: 210 23.26% 16.86%;
+--muted-foreground: 0 0% 96.08%;
+--accent: 0 2.04% 71.18%;
+--accent-foreground: 0 0% 96.08%;
+--success: 142.09 70.56% 45.29%;
+--success-foreground: 0 0% 96.08%;
+--warning: 45.4 93.39% 47.45%;
+--warning-foreground: 0 0% 96.08%;
+--info: 217.22 91.22% 59.8%;
+--info-foreground: 213.33 96.92% 87.25%;
+--destructive: 332 60% 44.12%;
+--destructive-foreground: 0 0% 96.08%;
+--border: 0 0% 7.06%;
+--input: 215.56 21.6% 24.51%;
+--ring: 215.13 100% 37.84%;
+--radius: 1rem;
+
+
+            --button-gradient-active: true;
+--button-gradient-dir: to bottom;
+--button-gradient-from: #f5b247;
+--gradien-from-stop: 0%;
+--button-gradient-via: #ff9c01;
+--button-gradient-via-stop: 10%;
+--button-gradient-to: #000000;
+--button-gradient-to-stop: 100%;
+--button-gradient-theme: linear-gradient(to bottom, #f5b247 0%, #ff9c01 10%, #000000 100%);
+        }.dark{--background: 220 19.15% 9.22%;
+--foreground: 0 0% 96.08%;
+--card: 212 23.81% 12.35%;
+--card-foreground: 0 0% 96.08%;
+--popover: 192 9.8% 10%;
+--popover-foreground: 0 0% 96.08%;
+--primary: 36.61 100% 50.2%;
+--primary-foreground: 0 0% 96.08%;
+--secondary: 212 23.81% 12.35%;
+--secondary-foreground: 0 0% 96.08%;
+--muted: 210 23.26% 16.86%;
+--muted-foreground: 0 0% 96.08%;
+--accent: 0 2.04% 71.18%;
+--accent-foreground: 0 0% 96.08%;
+--success: 142.09 70.56% 45.29%;
+--success-foreground: 0 0% 96.08%;
+--warning: 45.4 93.39% 47.45%;
+--warning-foreground: 0 0% 96.08%;
+--info: 217.22 91.22% 59.8%;
+--info-foreground: 213.33 96.92% 87.25%;
+--destructive: 332 60% 44.12%;
+--destructive-foreground: 0 0% 96.08%;
+--border: 0 0% 7.06%;
+--input: 215.56 21.6% 24.51%;
+--ring: 215.13 100% 37.84%;
+
+        }  </style>
+</head>
+
+<body class="bg-background text-foreground">
+  <header class="sticky z-40 w-full flex-none bg-secondary/80 backdrop-blur duration-500 ease-in-out print:hidden top-0 mt-0">
+    <div class="border-b border-border/20 md:order-2">
+      <div class="container flex h-16 items-center justify-between gap-4">
+        <div class="flex items-center justify-start"><a style="outline:none" href="https://aksatopup.my.id/"><span class="sr-only">Aksa </span><img alt="Aksa - No #1 supplier top up game & voucher terlaris, murah, aman legal 100% buka 24 Jam dengan payment terlengkap Indonesia" fetchpriority="high" width="1000" height="1000" decoding="async" data-nimg="1" class="h-9 w-auto lg:h-10" style="color:transparent" src="https://aksatopup.my.id/public/img/web/273853.gif"></a></div>
+        <div class="flex flex-1 items-center justify-end gap-2">
+          <div class="relative w-full hidden md:flex">
+            <div class="relative w-full"> <input id="searchInputDesktop" type="text" class="h-9 w-full rounded-lg border border-muted-foreground/10 bg-input/80 pl-9 text-sm placeholder:text-muted-foreground/75 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-75" placeholder="Cari Game atau Voucher"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-3 top-1/2 size-4 -translate-y-1/2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg></div>
+            <div class="absolute top-10 z-40 max-h-[400px] w-full overflow-y-auto rounded-lg border border-border bg-secondary" id="containerSearchDesktop" style="display: none">
+              <div id="searchResultsDesktop" class="flex flex-col gap-3 p-4" style="display: none"></div>
+            </div>
+          </div> <button class="inline-flex items-center justify-center whitespace-nowrap transition-all rounded-lg shadow-sm text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border/50 bg-transparent hover:bg-accent/75 hover:text-accent-foreground h-9 w-9 md:hidden" type="button" onclick="toggleSearchContainer()"> <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search size-5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg> </button>
+          <div class="flex items-center justify-center"><button class="inline-flex items-center justify-center whitespace-nowrap transition-all rounded-lg shadow-sm text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border/50 bg-transparent hover:bg-accent/75 hover:text-accent-foreground h-9 px-4 py-2 pl-2 pr-3" type="button">
+              <div class="size-5"><img data-testid="circle-country-flag" title="id" height="100" src="https://react-circle-flags.pages.dev/id.svg"></div><span class="ml-2">ID<!-- --> / <!-- -->IDR</span>
+            </button></div>
+                      <div class="flex"> <button class="inline-flex items-center justify-center whitespace-nowrap transition-all rounded-lg shadow-sm text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border/50 bg-transparent hover:bg-accent/75 hover:text-accent-foreground h-9 w-9 h-9 w-9" type="button" onclick="toggleProfilContainer()">
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocKc7iMNJlCKfUboanrTSL1HGwG6kUm8TqmlY-Fe_LpwpEJZCw=s96-c" alt="" class="h-9 w-9 rounded-full" width="100" height="100">
+              </button> </div>
+            <div class="hidden absolute right-2 top-14 z-50 min-w-max shadow-lg rounded-lg" id="user-dropdown-mobile">
+              <div data-side="bottom" data-align="end" role="menu" aria-orientation="vertical" data-state="open" data-radix-menu-content="" dir="ltr" class="z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 w-56" tabindex="-1" data-orientation="vertical" style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height); pointer-events: auto;">
+                <div class="px-2 py-1.5 text-sm font-semibold">
+                  <p class="text-sm">Telah masuk sebagai</p>
+                  <p class="truncate text-sm font-medium text-secondary-foreground">ilhamnillah4</p>
+                </div>
+                <div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-popover-foreground/5"></div>
+                <div role="group"><a role="menuitem" class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50" tabindex="-1" data-orientation="vertical" data-radix-collection-item="" href="https://aksatopup.my.id/id-id/dashboard/reload" style="outline: none;"><span><img alt="Coin" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="https://aksatopup.my.id/public/img/metode/Proyek%20Baru%2010%20%5B450098F%5D.png" style="color: transparent;"></span><span class="ml-2">
+                      <number-flow-react>0</number-flow-react> AKSPAY<sup>IDR</sup>
+                    </span></a></div>
+                <div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-popover-foreground/5"></div>
+                <div role="group">
+                  <a role="menuitem" class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50" tabindex="-1" data-orientation="vertical" data-radix-collection-item="" href="https://aksatopup.my.id/id-id/dashboard" style="outline: none;"><svg width="18" height="18" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <title>Iconly/Two-tone/Category</title>
+                      <g id="Iconly/Two-tone/Category" stroke="none" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                        <g id="Category" transform="translate(2.999141, 3.000000)" stroke="currentColor" stroke-width="1.5">
+                          <path d="M0.000858865205,3.5 C0.000858865205,0.874787053 0.0289681101,0 3.50085887,0 C6.9727494,0 7.00085887,0.874787053 7.00085887,3.5 C7.00085887,6.12521295 7.01193168,7 3.50085887,7 C-0.010214169,7 0.000858865205,6.12521295 0.000858865205,3.5 Z" id="Stroke-1"></path>
+                          <path d="M11.0008589,3.5 C11.0008589,0.874787053 11.0289681,0 14.5008589,0 C17.9727494,0 18.0008589,0.874787053 18.0008589,3.5 C18.0008589,6.12521295 18.0119317,7 14.5008589,7 C10.9897858,7 11.0008589,6.12521295 11.0008589,3.5 Z" id="Stroke-3" opacity="0.400000006"></path>
+                          <path d="M0.000858865205,14.5 C0.000858865205,11.8747871 0.0289681101,11 3.50085887,11 C6.9727494,11 7.00085887,11.8747871 7.00085887,14.5 C7.00085887,17.1252129 7.01193168,18 3.50085887,18 C-0.010214169,18 0.000858865205,17.1252129 0.000858865205,14.5 Z" id="Stroke-5"></path>
+                          <path d="M11.0008589,14.5 C11.0008589,11.8747871 11.0289681,11 14.5008589,11 C17.9727494,11 18.0008589,11.8747871 18.0008589,14.5 C18.0008589,17.1252129 18.0119317,18 14.5008589,18 C10.9897858,18 11.0008589,17.1252129 11.0008589,14.5 Z" id="Stroke-7"></path>
+                        </g>
+                      </g>
+                    </svg><span class="ml-2">Dashboard</span></a>
+                  <a role="menuitem" class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50" tabindex="-1" data-orientation="vertical" data-radix-collection-item="" href="https://aksatopup.my.id/id-id/dashboard/settings" style="outline: none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.4177 6.84714L20.1717 8.15286C20.7497 9.15405 20.4053 10.4335 19.405 11.0115C18.6452 11.4512 18.6452 12.5488 19.405 12.9876C20.4062 13.5655 20.7497 14.8459 20.1717 15.8462L19.4177 17.1529C18.8398 18.1541 17.5593 18.4965 16.5581 17.9186C15.7982 17.4798 14.8476 18.0285 14.8476 18.9062C14.8476 20.0621 13.9107 21 12.7548 21H11.2467C10.0908 21 9.1538 20.0621 9.1538 18.9062C9.1538 18.0285 8.20321 17.4798 7.44234 17.9186C6.44116 18.4965 5.1617 18.1541 4.58375 17.1529L3.8297 15.8462C3.25175 14.8459 3.59424 13.5655 4.59543 12.9876C5.35629 12.5488 5.35629 11.4512 4.59543 11.0115C3.59424 10.4335 3.25175 9.15405 3.8297 8.15286L4.58375 6.84714C5.1617 5.84595 6.44116 5.50249 7.44234 6.08043C8.20321 6.52022 9.1538 5.97146 9.1538 5.09286C9.1538 3.93697 10.0908 3 11.2467 3H12.7548C13.9107 3 14.8476 3.93697 14.8476 5.09286C14.8476 5.97146 15.7992 6.52022 16.5591 6.08043C17.5593 5.50249 18.8398 5.84595 19.4177 6.84714Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" d="M15.2126 11.9999C15.2126 10.2252 13.7746 8.78711 11.9999 8.78711C10.2252 8.78711 8.78711 10.2252 8.78711 11.9999C8.78711 13.7746 10.2252 15.2126 11.9999 15.2126C13.7746 15.2126 15.2126 13.7746 15.2126 11.9999Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg><span class="ml-2">Pengaturan</span></a>
+                </div>
+                <div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-popover-foreground/5"></div>
+                <a href="https://aksatopup.my.id/id-id/logout" role="menuitem" class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50" tabindex="-1" data-orientation="vertical" data-radix-collection-item=""><svg width="18" height="18" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.4" d="M15.0775 7.87065V6.98816C15.0775 5.06457 13.5178 3.50391 11.5933 3.50391H6.98328C5.05969 3.50488 3.5 5.06457 3.5 6.98816V17.5119C3.5 19.4365 5.05969 20.9962 6.98328 20.9962H11.603C13.5217 20.9962 15.0765 19.4414 15.0775 17.5226V16.6314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M21.5001 12.2487H10.1152M21.5001 12.2487L18.7314 9.49219M21.5001 12.2487L18.7314 15.0061" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg><span class="ml-2">Keluar</span></a>
+              </div>
+            </div>
+                    <div class="block md:hidden"><button class="inline-flex items-center justify-center whitespace-nowrap transition-all rounded-lg shadow-sm text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border/50 bg-transparent hover:bg-accent/75 hover:text-accent-foreground h-9 w-9" type="button" data-bs-toggle="offcanvas" data-bs-target="#open-menu" aria-controls="open-menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu size-5">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg></button></div>
+        </div>
+      </div>
+    </div>
+    <div class="container w-full items-center justify-start border-b border-border/20 px-4 py-2 md:hidden hidden md:order-1" id="searchContainer">
+      <div class="relative w-full">
+        <div class="relative w-full"><input type="text" id="searchInputMobile" class="h-9 w-full rounded-lg border border-muted-foreground/10 bg-input/80 pl-9 text-sm placeholder:text-muted-foreground/75 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-75" placeholder="Cari Game atau Voucher"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-3 top-1/2 size-4 -translate-y-1/2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg></div>
+        <div class="absolute top-10 z-40 max-h-[400px] w-full overflow-y-auto rounded-lg border border-border bg-secondary hide-scrollbar" id="containerSearchAndroid" style="display: none;">
+          <div id="searchResultsMobile" class="flex flex-col gap-3 p-4"></div>
+        </div>
+
+      </div>
+    </div>
+    <nav class="container hidden h-10 w-full items-center justify-between border-b border-border/20 md:flex">
+      <div class="flex h-full items-center gap-5">
+        <a class="relative inline-flex h-full items-center gap-2 text-sm font-medium " style="outline:none" href="https://aksatopup.my.id/">
+          <div style="--size:20px" class="relative size-[--size]">
+            <div style="--size:20px;--icon-color:hsl(var(--primary))" class="iconly [&amp;>svg]:!size-[--size]"><svg width="512" height="512" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="size-4">
+                <title>Iconly/Two-tone/Category</title>
+                <g id="Iconly/Two-tone/Category" stroke="none" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                  <g id="Category" transform="translate(2.999141, 3.000000)" stroke="currentColor" stroke-width="1.5">
+                    <path d="M0.000858865205,3.5 C0.000858865205,0.874787053 0.0289681101,0 3.50085887,0 C6.9727494,0 7.00085887,0.874787053 7.00085887,3.5 C7.00085887,6.12521295 7.01193168,7 3.50085887,7 C-0.010214169,7 0.000858865205,6.12521295 0.000858865205,3.5 Z" id="Stroke-1"></path>
+                    <path d="M11.0008589,3.5 C11.0008589,0.874787053 11.0289681,0 14.5008589,0 C17.9727494,0 18.0008589,0.874787053 18.0008589,3.5 C18.0008589,6.12521295 18.0119317,7 14.5008589,7 C10.9897858,7 11.0008589,6.12521295 11.0008589,3.5 Z" id="Stroke-3" opacity="0.400000006"></path>
+                    <path d="M0.000858865205,14.5 C0.000858865205,11.8747871 0.0289681101,11 3.50085887,11 C6.9727494,11 7.00085887,11.8747871 7.00085887,14.5 C7.00085887,17.1252129 7.01193168,18 3.50085887,18 C-0.010214169,18 0.000858865205,17.1252129 0.000858865205,14.5 Z" id="Stroke-5"></path>
+                    <path d="M11.0008589,14.5 C11.0008589,11.8747871 11.0289681,11 14.5008589,11 C17.9727494,11 18.0008589,11.8747871 18.0008589,14.5 C18.0008589,17.1252129 18.0119317,18 14.5008589,18 C10.9897858,18 11.0008589,17.1252129 11.0008589,14.5 Z" id="Stroke-7"></path>
+                  </g>
+                </g>
+              </svg></div>
+          </div><span>Topup</span>
+                  </a>
+        <a class="relative inline-flex h-full items-center gap-2 text-sm font-medium " style="outline:none" href="https://aksatopup.my.id/id-id/invoices">
+          <div style="--size:20px" class="relative size-[--size]">
+            <div style="--size:20px;--icon-color:hsl(var(--foreground))" class="iconly [&amp;>svg]:!size-[--size]"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="512" height="512" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+                <defs>
+                  <clipPath id="__lottie_element_13">
+                    <rect width="512" height="512" x="0" y="0"></rect>
+                  </clipPath>
+                  <clipPath id="__lottie_element_24">
+                    <path fill="#ffffff" clip-rule="nonzero" d=" M-57.91999816894531,-221 C-57.91999816894531,-221 -274.9200134277344,-221 -274.9200134277344,-221 C-274.9200134277344,-221 -274.9200134277344,227 -274.9200134277344,227 C-274.9200134277344,227 -57.91999816894531,227 -57.91999816894531,227 C-57.91999816894531,227 -57.91999816894531,-221 -57.91999816894531,-221" fill-opacity="1"></path>
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#__lottie_element_13)">
+                  <g clip-path="url(#__lottie_element_24)" transform="matrix(1,0,0,1,252.9199981689453,256)" opacity="1" style="display: block;">
+                    <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                      <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="29.6" d=" M-86.71099853515625,-183.90199279785156 C-86.71099853515625,-183.90199279785156 85.83599853515625,-184.32000732421875 85.83599853515625,-184.32000732421875 C146.14500427246094,-184.45899963378906 183.78399658203125,-141.98399353027344 183.92300415039062,-81.71499633789062 C183.92300415039062,-81.71499633789062 184.3000030517578,80.83799743652344 184.3000030517578,80.83799743652344 C184.43899536132812,141.10899353027344 147.02000427246094,183.76300048828125 86.69200134277344,183.90199279785156 C86.69200134277344,183.90199279785156 -85.83499908447266,184.32000732421875 -85.83499908447266,184.32000732421875 C-146.16400146484375,184.45899963378906 -183.78199768066406,141.98399353027344 -183.92100524902344,81.71499633789062 C-183.92100524902344,81.71499633789062 -184.3000030517578,-80.86000061035156 -184.3000030517578,-80.86000061035156 C-184.43899536132812,-141.10899353027344 -146.83999633789062,-183.76300048828125 -86.71099853515625,-183.90199279785156z"></path>
+                      <g opacity="1" transform="matrix(1,0,0,1,0,0)"></g>
+                    </g>
+                  </g>
+                  <g transform="matrix(1,0,0,1,252.9199981689453,256)" opacity="1" style="display: block;">
+                    <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                      <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="30.72" d=" M-7.0329999923706055,184.12899780273438 C-47.53900146484375,184.2270050048828 -85.83499908447266,184.32000732421875 -85.83499908447266,184.32000732421875 C-146.16400146484375,184.45899963378906 -183.78199768066406,141.98399353027344 -183.92100524902344,81.71499633789062 C-183.92100524902344,81.71499633789062 -184.3000030517578,-80.86000061035156 -184.3000030517578,-80.86000061035156 C-184.43899536132812,-141.10899353027344 -146.83999633789062,-183.76300048828125 -86.71099853515625,-183.90199279785156 C-86.71099853515625,-183.90199279785156 -86.71099853515625,-183.90199279785156 -86.71099853515625,-183.90199279785156 C-86.71099853515625,-183.90199279785156 85.83599853515625,-184.32000732421875 85.83599853515625,-184.32000732421875 C146.14500427246094,-184.45899963378906 183.78399658203125,-141.98399353027344 183.92300415039062,-81.71499633789062 C183.92300415039062,-81.71499633789062 183.9720001220703,-60.584999084472656 184.03500366210938,-33.5620002746582"></path>
+                      <g opacity="1" transform="matrix(1,0,0,1,0,0)"></g>
+                    </g>
+                  </g>
+                  <g transform="matrix(1,0,0,1,252.8979949951172,150.09100341796875)" opacity="0.4" style="display: block;">
+                    <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                      <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="30.72" d=" M57.91999816894531,-78.41100311279297 C57.91999816894531,-78.41100311279297 58.257999420166016,58.073001861572266 58.257999420166016,58.073001861572266 C58.257999420166016,58.073001861572266 0.2590000033378601,39.185001373291016 0.2590000033378601,39.185001373291016 C0.2590000033378601,39.185001373291016 -58.07899856567383,58.4109992980957 -58.07899856567383,58.4109992980957 C-58.07899856567383,58.4109992980957 -58.257999420166016,-77.89299774169922 -58.257999420166016,-77.89299774169922"></path>
+                      <g opacity="1" transform="matrix(1,0,0,1,0,0)"></g>
+                    </g>
+                  </g>
+                  <g transform="matrix(0.7071067690849304,-0.7071067690849304,0.7071067690849304,0.7071067690849304,219.64642333984375,360.39306640625)" opacity="1" style="display: block;">
+                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="30.72" d=" M107.65499877929688,150.28700256347656 C71.5260009765625,150.28700256347656 42.233001708984375,120.99400329589844 42.233001708984375,84.86499786376953 C42.220001220703125,48.722999572753906 71.51300048828125,19.43000030517578 107.65499877929688,19.44300079345703 C143.78399658203125,19.44300079345703 173.07699584960938,48.736000061035156 173.07699584960938,84.86499786376953 C173.07699584960938,120.99400329589844 143.78399658203125,150.28700256347656 107.65499877929688,150.28700256347656z M107.6449966430664,150.27699279785156 C107.6449966430664,150.27699279785156 107.64800262451172,200.41200256347656 107.64800262451172,200.41200256347656"></path>
+                    <g opacity="1" transform="matrix(1,0,0,1,0,0)"></g>
+                  </g>
+                </g>
+              </svg></div>
+          </div><span>Cek Transaksi</span>
+                  </a>
+        <a class="relative inline-flex h-full items-center gap-2 text-sm font-medium " style="outline:none" href="https://aksatopup.my.id/id-id/leaderboard">
+          <div style="--size:20px" class="relative size-[--size]">
+            <div style="--size:20px;--icon-color:hsl(var(--foreground))" class="iconly [&amp;>svg]:!size-[--size]"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="512" height="512" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+                <defs>
+                  <clipPath id="__lottie_element_27">
+                    <rect width="512" height="512" x="0" y="0"></rect>
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#__lottie_element_27)">
+                  <g transform="matrix(1,0,0,1,255.99000549316406,133.4010009765625)" opacity="0.4" style="display: block;">
+                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="30.72" d=" M-8.01,-56.9 C-8.01,-56.9 -21.21,-30.4 -21.21,-30.4 C-22.51,-27.8 -25.01,-26 -27.91,-25.6 C-27.91,-25.6 -57.61,-21.3 -57.61,-21.3 C-62.41,-20.7 -65.81,-16.3 -65.21,-11.4 C-64.91,-9.4 -64.01,-7.6 -62.61,-6.2 C-62.61,-6.2 -41.11,14.4 -41.11,14.4 C-39.01,16.4 -38.01,19.3 -38.51,22.2 C-38.51,22.2 -43.61,51.3 -43.61,51.3 C-44.41,56.2 -41.11,60.7 -36.21,61.5 C-34.31,61.8 -32.31,61.5 -30.61,60.6 C-30.61,60.6 -4.11,46.8 -4.11,46.8 C-1.51,45.4 1.59,45.4 4.19,46.8 C4.19,46.8 30.69,60.6 30.69,60.6 C34.99,62.9 40.39,61.2 42.69,56.9 C43.59,55.2 43.89,53.2 43.59,51.3 C43.59,51.3 38.49,22.2 38.49,22.2 C37.99,19.3 38.99,16.4 41.09,14.4 C41.09,14.4 62.59,-6.2 62.59,-6.2 C66.09,-9.6 66.19,-15.1 62.79,-18.6 C61.39,-20 59.59,-21 57.59,-21.2 C57.59,-21.2 27.89,-25.5 27.89,-25.5 C24.99,-25.9 22.49,-27.7 21.19,-30.3 C21.19,-30.3 7.89,-56.8 7.89,-56.8 C5.59,-61.2 0.19,-62.9 -4.21,-60.6 C-5.81,-59.9 -7.11,-58.5 -8.01,-56.9z"></path>
+                    <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                      <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                        <g opacity="1" transform="matrix(-1,0,0,1,0,0)"></g>
+                      </g>
+                    </g>
+                  </g>
+                  <g transform="matrix(1,0,0,1,256,256)" opacity="1" style="display: block;">
+                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="30.72" d=" M-57.79999923706055,54.20000076293945 C-57.79999923706055,54.20000076293945 -144.5,54.20000076293945 -144.5,54.20000076293945 C-160.5,54.20000076293945 -173.5,67.19999694824219 -173.5,83.19999694824219 C-173.5,83.19999694824219 -173.5,155.39999389648438 -173.5,155.39999389648438 C-173.5,171.3000030517578 -160.5,184.39999389648438 -144.5,184.39999389648438 C-144.5,184.39999389648438 144.5,184.39999389648438 144.5,184.39999389648438 C160.39999389648438,184.39999389648438 173.5,171.39999389648438 173.5,155.39999389648438 C173.5,155.39999389648438 173.5,121.69999694824219 173.5,121.69999694824219 C173.5,105.69999694824219 160.5,92.69999694824219 144.5,92.69999694824219 C144.5,92.69999694824219 57.79999923706055,92.69999694824219 57.79999923706055,92.69999694824219 M57.79999923706055,184.3000030517578 C57.79999923706055,184.3000030517578 57.79999923706055,20.5 57.79999923706055,20.5 C57.79999923706055,4.5 44.79999923706055,-8.5 28.799999237060547,-8.5 C28.799999237060547,-8.5 -28.899999618530273,-8.5 -28.899999618530273,-8.5 C-44.79999923706055,-8.5 -57.900001525878906,4.5 -57.900001525878906,20.5 C-57.900001525878906,20.5 -57.900001525878906,184.3000030517578 -57.900001525878906,184.3000030517578"></path>
+                    <g opacity="1" transform="matrix(1,0,0,1,0,0)"></g>
+                  </g>
+                </g>
+              </svg></div>
+          </div><span>Leaderboard</span>        </a>
+        <a href="https://aksatopup.my.id/id-id/articles" class="relative inline-flex h-full items-center gap-2 text-sm font-medium" style="outline:none" target="_blank" rel="noopener noreferrer">
+          <div style="--size:20px" class="relative size-[--size]">
+            <div style="--size:20px;--icon-color:hsl(var(--foreground))" class="iconly [&amp;>svg]:!size-[--size]"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="512" height="512" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+                <defs>
+                  <clipPath id="__lottie_element_43">
+                    <rect width="512" height="512" x="0" y="0"></rect>
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#__lottie_element_43)">
+                  <g transform="matrix(1,-0.000012106154827051796,0.000012106154827051796,1,188.16758728027344,366.47418212890625)" opacity="0.4" style="display: block;">
+                    <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                      <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="32" d=" M43.37099838256836,-47.025997161865234 C45.76599884033203,-29.53999900817871 49.819000244140625,0.22199977934360504 52.095001220703125,19.195999145507812 C52.895999908447266,25.875 53.47700119018555,31.218000411987305 53.6879997253418,34.21799850463867 C55.097999572753906,50.987998962402344 46.19300079345703,65.1449966430664 31.85099983215332,70.60399627685547 C17.299999237060547,76.2509994506836 -1.2979999780654907,71.20500183105469 -10.597000122070312,58.066001892089844 C-15.038999557495117,52.21200180053711 -18.06999969482422,45.13399887084961 -20.291000366210938,38.05799865722656 C-26.868999481201172,17.14900016784668 -34.89699935913086,-9.578999519348145 -42.430999755859375,-34.7760009765625 C-46.474998474121094,-48.30099868774414 -50.375999450683594,-61.3849983215332 -53.83399963378906,-72.89099884033203"></path>
+                    </g>
+                  </g>
+                  <g transform="matrix(1,-0.000012106154827051796,0.000012106154827051796,1,-0.004848578479140997,0.002461096504703164)" opacity="1" style="display: block;">
+                    <g opacity="1" transform="matrix(1,0,0,1,256,256)">
+                      <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                        <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="32" d=" M-145.60800170898438,32.972999572753906 C-97.74199676513672,41.50400161743164 -23.763999938964844,59.10599899291992 58.10300064086914,94.37200164794922 C92.47699737548828,109.1729965209961 130.8560028076172,84.6780014038086 130.8990020751953,47.25300216674805 C130.8990020751953,47.25300216674805 131.1060028076172,-111.99500274658203 131.1060028076172,-111.99500274658203 C131.18899536132812,-169.3679962158203 92.85099792480469,-193.92300415039062 58.41499710083008,-179.18499755859375 C-23.597000122070312,-144.12600708007812 -97.67900085449219,-126.69100189208984 -145.5659942626953,-118.30500030517578 C-176.51499938964844,-112.88700103759766 -191.93800354003906,-85.88200378417969 -191.97900390625,-54.45600128173828 C-191.97900390625,-54.45600128173828 -192,-31.020999908447266 -192,-31.020999908447266 C-192.04100036621094,0.46700000762939453 -176.61900329589844,27.45199966430664 -145.60800170898438,32.972999572753906z"></path>
+                      </g>
+                    </g>
+                    <g opacity="0.4" transform="matrix(1,0,0,1,417.4599914550781,213.66600036621094)">
+                      <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                        <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="32" d=" M-30.54400062561035,71 C52.790000915527344,54.33399963378906 50.290000915527344,-56.41600036621094 -30.356000900268555,-70.9990005493164"></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg></div>
+          </div><span>Artikel</span>
+        </a>
+        <a href="https://aksatopup.my.id/id-id/docs" class="relative inline-flex h-full items-center gap-2 text-sm font-medium " style="outline:none" target="_blank" rel="noopener noreferrer">
+          <div style="--size:20px" class="relative size-[--size]">
+            <div style="--size:20px;--icon-color:hsl(var(--foreground))" class="iconly [&amp;>svg]:!size-[--size]">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff" width="512" height="512">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <rect width="24" height="24" fill="none"></rect>
+                  <path d="M20,6H4A2,2,0,0,0,2,8v8a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V8A2,2,0,0,0,20,6ZM9.29,14.8,9,13.73H7.16L6.87,14.8H5.17L7,9.07H9.09L11,14.8Zm6.34-3.14a1.7,1.7,0,0,1-.36.64,1.82,1.82,0,0,1-.67.44,2.75,2.75,0,0,1-1,.17h-.44V14.8H11.6V9.09h2a2.43,2.43,0,0,1,1.62.47,1.67,1.67,0,0,1,.55,1.35A2.36,2.36,0,0,1,15.63,11.66Zm2.58,3.14H16.66V9.09h1.55ZM8.45,11.53l.24.93H7.48l.24-.93c0-.13.08-.28.12-.47s.09-.38.13-.57a4.63,4.63,0,0,0,.1-.48c0,.13.07.29.11.5l.15.58Zm5.59-1a.57.57,0,0,1,.16.43.75.75,0,0,1-.11.42.59.59,0,0,1-.27.22.9.9,0,0,1-.37.07h-.31V10.34h.4A.63.63,0,0,1,14,10.51Z" fill-rule="evenodd"></path>
+                </g>
+              </svg>
+            </div>
+          </div><span>Dokumentasi API</span>
+                  </a>
+      </div>
+                </nav>
+  </header>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="open-menu" aria-labelledby="open-menu">
+    <div class="offcanvas-body">
+      <div class="relative z-40 lg:hidden">
+        <div class="fixed inset-0 z-40 flex">
+          <div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-background pb-12 shadow-xl translate-x-0">
+            <div class="flex flex-row-reverse items-center justify-between border-b border-dashed p-4"><button type="button" class="text-murky-400 -m-2 inline-flex items-center justify-center rounded-md p-2" tabindex="0" data-bs-dismiss="offcanvas" aria-label="Close"><span class="sr-only">Close menu</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg></button>
+              <div class="flex items-center">
+                <a class="relative h-10 w-24" href="https://aksatopup.my.id/" style="outline: none;"><span class="sr-only">Aksa Logo</span><img alt="Aksa Logo" fetchpriority="high" decoding="async" data-nimg="fill" class="object-contain" sizes="100vw" src="https://aksatopup.my.id/public/img/web/273853.gif" style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"></a>
+              </div>
+            </div>
+            <div class="space-y-2 border-y border-background p-4">
+              <div><a class="group flex items-center justify-between rounded-md px-4 py-2 font-medium text-foreground hover:bg-muted" href="https://aksatopup.my.id/" style="outline: none;"><span>Topup</span><span><svg width="20" height="20" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5209 6.87109H8.47891C5.67599 6.87109 3.91895 8.8558 3.91895 11.6636V16.206C3.91895 19.0148 5.66724 20.9985 8.47891 20.9985H16.5199C19.3316 20.9985 21.0818 19.0148 21.0818 16.206V11.6636C21.0818 8.8558 19.3316 6.87109 16.5209 6.87109Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" d="M9.38477 11.1445C9.45871 11.8684 9.79338 12.5173 10.275 13.0096C10.8509 13.5748 11.639 13.928 12.5019 13.928C14.116 13.928 15.443 12.7119 15.6191 11.1445" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" d="M16.3702 6.87115C16.3702 4.7337 14.6375 3 12.4991 3C10.3616 3 8.62891 4.7337 8.62891 6.87115" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></span></a></div>
+              <div><a class="group flex items-center justify-between rounded-md px-4 py-2 font-medium text-foreground hover:bg-muted" href="https://aksatopup.my.id/id-id/invoices" style="outline: none;"><span>Cek Transaksi</span><span><svg width="20" height="20" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.129 10.3728L21.1106 8.05801C21.1038 5.1517 19.2891 3.10258 16.3799 3.10939L8.05695 3.12982C5.15647 3.13664 3.34282 5.19353 3.34963 8.10082L3.36812 15.9421C3.37493 18.8485 5.18955 20.8976 8.09879 20.8908L12.0121 20.8713" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M19.6179 18.5669C18.3705 19.8143 16.3477 19.8143 15.1003 18.5669C13.852 17.3195 13.852 15.2967 15.1003 14.0493C16.3477 12.8019 18.3705 12.8019 19.6179 14.0493C20.8653 15.2967 20.8653 17.3195 19.6179 18.5669Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M19.6172 18.5669L21.3483 20.2978" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" d="M15.0331 3.11035L15.0497 9.69846L12.2523 8.78677L9.43747 9.715L9.42969 3.13468" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></span></a></div>
+              <div>
+                <a class="group flex items-center justify-between rounded-md px-4 py-2 font-medium text-foreground hover:bg-muted" href="https://aksatopup.my.id/id-id/leaderboard" style="outline: none;"><span>Leaderboard</span><span><svg width="20" height="20" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.67637 14.6445H5.44301C4.66172 14.6445 4.02832 15.2779 4.02832 16.0592V19.5852C4.02832 20.3636 4.66464 20.9999 5.44301 20.9999H19.5578C20.3361 20.9999 20.9725 20.3636 20.9725 19.5852V17.9419C20.9725 17.1606 20.3391 16.5272 19.5578 16.5272H15.3244" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M12.8887 3.2372L13.5357 4.53124C13.5999 4.6587 13.7225 4.74627 13.8646 4.7667L15.3133 4.97492C15.5478 5.00605 15.7132 5.22108 15.6821 5.45653C15.6694 5.55188 15.6247 5.6414 15.5546 5.70853L14.5067 6.71555C14.4036 6.81284 14.3569 6.95587 14.3812 7.09597L14.6293 8.51747C14.6673 8.75488 14.5057 8.97768 14.2683 9.01563C14.1759 9.0312 14.0796 9.01466 13.9959 8.97087L12.7019 8.3005C12.5744 8.23434 12.4236 8.23434 12.2961 8.3005L11.0011 8.97185C10.789 9.08374 10.5254 9.00298 10.4135 8.79087C10.3687 8.7072 10.3531 8.61088 10.3677 8.51747L10.6158 7.09695C10.6402 6.95684 10.5935 6.81381 10.4903 6.71555L9.44148 5.7095C9.27121 5.54507 9.26635 5.27362 9.43078 5.10237C9.49791 5.03329 9.58742 4.98756 9.68277 4.97492L11.1315 4.7667C11.2736 4.74724 11.3962 4.6587 11.4604 4.53124L12.1093 3.2372C12.2203 3.02218 12.4859 2.93753 12.7009 3.04942C12.7817 3.09126 12.8468 3.15645 12.8887 3.2372Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M15.3238 20.9994V13.0006C15.3238 12.2193 14.6904 11.5859 13.9091 11.5859H11.0905C10.3121 11.5859 9.67578 12.2223 9.67578 13.0006V20.9994" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></span></a>
+              </div>
+              <div>
+                <a href="https://aksatopup.my.id/id-id/articles" class="group flex items-center justify-between rounded-md px-4 py-2 font-medium text-foreground hover:bg-muted" target="_blank" rel="noopener noreferrer" style="outline: none;"><span>Artikel</span><span><svg width="20" height="20" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.3527 14.964V14.9737M5.67464 13.5456C7.91836 13.9455 11.3861 14.7706 15.2236 16.4237C16.8349 17.1175 18.6339 15.9693 18.6359 14.215L18.6456 6.75025C18.6495 4.0609 16.8524 2.90985 15.2382 3.60068C11.3939 5.24406 7.92128 6.06137 5.67659 6.45446C4.22586 6.70841 3.50292 7.97427 3.50098 9.44738L3.5 10.5459C3.49806 12.0219 4.22099 13.2868 5.67464 13.5456Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" d="M18.6367 13.3437C20.2558 13.1015 21.4983 11.7062 21.5002 10.019C21.5022 8.3338 20.2636 6.93464 18.6455 6.6875" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" d="M11.3534 14.9741C11.5052 16.0823 11.799 18.2423 11.837 18.7824C11.9031 19.5685 11.4857 20.2321 10.8134 20.488C10.1313 20.7527 9.25952 20.5162 8.82362 19.9003C8.6154 19.6259 8.47334 19.2941 8.36923 18.9624C7.89538 17.4562 7.26099 15.3059 6.79688 13.7617" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" d="M7.87791 6.03516L7.87305 9.7588" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></span></a>
+              </div>
+              <div>
+                <a href="https://aksatopup.my.id/id-id/docs" class="group flex items-center justify-between rounded-md px-4 py-2 font-medium text-foreground hover:bg-muted" target="_blank" rel="noopener noreferrer" style="outline: none;"><span>Dokumentasi API</span><span><svg width="20" height="20" viewBox="0 0 25 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <rect width="24" height="24" fill="none"></rect>
+                        <path d="M20,6H4A2,2,0,0,0,2,8v8a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V8A2,2,0,0,0,20,6ZM9.29,14.8,9,13.73H7.16L6.87,14.8H5.17L7,9.07H9.09L11,14.8Zm6.34-3.14a1.7,1.7,0,0,1-.36.64,1.82,1.82,0,0,1-.67.44,2.75,2.75,0,0,1-1,.17h-.44V14.8H11.6V9.09h2a2.43,2.43,0,0,1,1.62.47,1.67,1.67,0,0,1,.55,1.35A2.36,2.36,0,0,1,15.63,11.66Zm2.58,3.14H16.66V9.09h1.55ZM8.45,11.53l.24.93H7.48l.24-.93c0-.13.08-.28.12-.47s.09-.38.13-.57a4.63,4.63,0,0,0,.1-.48c0,.13.07.29.11.5l.15.58Zm5.59-1a.57.57,0,0,1,.16.43.75.75,0,0,1-.11.42.59.59,0,0,1-.27.22.9.9,0,0,1-.37.07h-.31V10.34h.4A.63.63,0,0,1,14,10.51Z" fill-rule="evenodd"></path>
+                      </g>
+                    </svg></span></a>
+              </div>
+            </div>
+                          <div class="space-y-2 border-b border-background p-4">
+                <div><a class="group flex items-center justify-between rounded-md px-4 py-2 font-medium text-foreground hover:bg-muted" href="https://aksatopup.my.id/id-id/dashboard" style="outline: none;"><span>Dashboard</span><svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="size-4">
+                      <title>Iconly/Two-tone/Category</title>
+                      <g id="Iconly/Two-tone/Category" stroke="none" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                        <g id="Category" transform="translate(2.999141, 3.000000)" stroke="currentColor" stroke-width="1.5">
+                          <path d="M0.000858865205,3.5 C0.000858865205,0.874787053 0.0289681101,0 3.50085887,0 C6.9727494,0 7.00085887,0.874787053 7.00085887,3.5 C7.00085887,6.12521295 7.01193168,7 3.50085887,7 C-0.010214169,7 0.000858865205,6.12521295 0.000858865205,3.5 Z" id="Stroke-1"></path>
+                          <path d="M11.0008589,3.5 C11.0008589,0.874787053 11.0289681,0 14.5008589,0 C17.9727494,0 18.0008589,0.874787053 18.0008589,3.5 C18.0008589,6.12521295 18.0119317,7 14.5008589,7 C10.9897858,7 11.0008589,6.12521295 11.0008589,3.5 Z" id="Stroke-3" opacity="0.400000006"></path>
+                          <path d="M0.000858865205,14.5 C0.000858865205,11.8747871 0.0289681101,11 3.50085887,11 C6.9727494,11 7.00085887,11.8747871 7.00085887,14.5 C7.00085887,17.1252129 7.01193168,18 3.50085887,18 C-0.010214169,18 0.000858865205,17.1252129 0.000858865205,14.5 Z" id="Stroke-5"></path>
+                          <path d="M11.0008589,14.5 C11.0008589,11.8747871 11.0289681,11 14.5008589,11 C17.9727494,11 18.0008589,11.8747871 18.0008589,14.5 C18.0008589,17.1252129 18.0119317,18 14.5008589,18 C10.9897858,18 11.0008589,17.1252129 11.0008589,14.5 Z" id="Stroke-7"></path>
+                        </g>
+                      </g>
+                    </svg></a></div>
+                <div><a class="group flex items-center justify-between rounded-md px-4 py-2 font-medium text-foreground hover:bg-muted" href="/id-id/dashboard/history" style="outline: none;"><span>Transaksi</span><svg width="24" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-4">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5209 6.87109H8.47891C5.67599 6.87109 3.91895 8.8558 3.91895 11.6636V16.206C3.91895 19.0148 5.66724 20.9985 8.47891 20.9985H16.5199C19.3316 20.9985 21.0818 19.0148 21.0818 16.206V11.6636C21.0818 8.8558 19.3316 6.87109 16.5209 6.87109Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" d="M9.38477 11.1445C9.45871 11.8684 9.79338 12.5173 10.275 13.0096C10.8509 13.5748 11.639 13.928 12.5019 13.928C14.116 13.928 15.443 12.7119 15.6191 11.1445" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path opacity="0.4" d="M16.3702 6.87115C16.3702 4.7337 14.6375 3 12.4991 3C10.3616 3 8.62891 4.7337 8.62891 6.87115" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></a></div>
+                <div>
+                  <a class="group flex items-center justify-between rounded-md px-4 py-2 font-medium text-foreground hover:bg-muted" href="https://aksatopup.my.id/id-id/dashboard/reload" style="outline: none;"><span>AKSPAY</span><span><img alt="Coin" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="https://aksatopup.my.id/public/img/metode/Proyek%20Baru%2010%20%5B450098F%5D.png" style="color: transparent;"></span></a>
+                </div>
+              </div>
+              <div class="space-y-2 p-4">
+                <a href="https://aksatopup.my.id/id-id/logout" type="button" class="group flex w-full items-center justify-between rounded-md px-4 py-2 font-medium text-foreground hover:bg-muted">
+                  <span>Keluar</span>
+                  <svg width="18" height="18" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.4" d="M15.0775 7.87065V6.98816C15.0775 5.06457 13.5178 3.50391 11.5933 3.50391H6.98328C5.05969 3.50488 3.5 5.06457 3.5 6.98816V17.5119C3.5 19.4365 5.05969 20.9962 6.98328 20.9962H11.603C13.5217 20.9962 15.0765 19.4414 15.0775 17.5226V16.6314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M21.5001 12.2487H10.1152M21.5001 12.2487L18.7314 9.49219M21.5001 12.2487L18.7314 15.0061" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg></a>
+              </div>
+                      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content bg-background">
+    <div class="jsx-3478627577 __variable_368570 __variable_7fd41d __variable_bde904 font-sans antialiased">
+      
+<style>
+.dataTables_info {
+    display: none;
+}
+</style>
+
+<div class="relative bg-background">
+  <div class="container grid grid-cols-8 gap-8 pt-8 sm:pt-16">
+        <div class="col-span-1 hidden sm:block md:col-span-2">
+      <aside class="sticky top-20 print:hidden">
+        <nav class="h-full content-start lg:grid lg:content-between">
+          <div class="w-full space-y-4">
+            <a class="group flex items-center gap-3 rounded-md px-3 py-2 font-acpay text-sm font-medium ring-1 bg-gradient-to-r ring-muted/50 hover:from-muted/50 " href="/id-id/dashboard/reload" style="outline: none;"><img alt="Coin" loading="lazy" width="20" height="20" decoding="async" src="https://aksatopup.my.id/public/img/metode/Proyek%20Baru%2010%20%5B450098F%5D.png" style="color: transparent;"><span class="hidden truncate md:block">AKSPAY</span></a>
+            <a class="group flex items-center gap-3 rounded-md bg-gradient-to-r to-transparent px-3 py-2 text-sm font-medium text-foreground hover:from-muted/50 " href="https://aksatopup.my.id/id-id/dashboard" style="outline: none;"><svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-5 w-5">
+                <title>Iconly/Two-tone/Category</title>
+                <g id="Iconly/Two-tone/Category" stroke="none" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                  <g id="Category" transform="translate(2.999141, 3.000000)" stroke="currentColor" stroke-width="1.5">
+                    <path d="M0.000858865205,3.5 C0.000858865205,0.874787053 0.0289681101,0 3.50085887,0 C6.9727494,0 7.00085887,0.874787053 7.00085887,3.5 C7.00085887,6.12521295 7.01193168,7 3.50085887,7 C-0.010214169,7 0.000858865205,6.12521295 0.000858865205,3.5 Z" id="Stroke-1"></path>
+                    <path d="M11.0008589,3.5 C11.0008589,0.874787053 11.0289681,0 14.5008589,0 C17.9727494,0 18.0008589,0.874787053 18.0008589,3.5 C18.0008589,6.12521295 18.0119317,7 14.5008589,7 C10.9897858,7 11.0008589,6.12521295 11.0008589,3.5 Z" id="Stroke-3" opacity="0.400000006"></path>
+                    <path d="M0.000858865205,14.5 C0.000858865205,11.8747871 0.0289681101,11 3.50085887,11 C6.9727494,11 7.00085887,11.8747871 7.00085887,14.5 C7.00085887,17.1252129 7.01193168,18 3.50085887,18 C-0.010214169,18 0.000858865205,17.1252129 0.000858865205,14.5 Z" id="Stroke-5"></path>
+                    <path d="M11.0008589,14.5 C11.0008589,11.8747871 11.0289681,11 14.5008589,11 C17.9727494,11 18.0008589,11.8747871 18.0008589,14.5 C18.0008589,17.1252129 18.0119317,18 14.5008589,18 C10.9897858,18 11.0008589,17.1252129 11.0008589,14.5 Z" id="Stroke-7"></path>
+                  </g>
+                </g>
+              </svg><span class="hidden truncate md:block">Dashboard</span></a>
+            <a class="group flex items-center gap-3 rounded-md bg-gradient-to-r to-transparent px-3 py-2 text-sm font-medium text-foreground hover:from-muted/50 from-primary text-primary-foreground" href="https://aksatopup.my.id/id-id/dashboard/history" style="outline: none;"><svg width="24" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5209 6.87109H8.47891C5.67599 6.87109 3.91895 8.8558 3.91895 11.6636V16.206C3.91895 19.0148 5.66724 20.9985 8.47891 20.9985H16.5199C19.3316 20.9985 21.0818 19.0148 21.0818 16.206V11.6636C21.0818 8.8558 19.3316 6.87109 16.5209 6.87109Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path opacity="0.4" d="M9.38477 11.1445C9.45871 11.8684 9.79338 12.5173 10.275 13.0096C10.8509 13.5748 11.639 13.928 12.5019 13.928C14.116 13.928 15.443 12.7119 15.6191 11.1445" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path opacity="0.4" d="M16.3702 6.87115C16.3702 4.7337 14.6375 3 12.4991 3C10.3616 3 8.62891 4.7337 8.62891 6.87115" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg><span class="hidden truncate md:block">Transaksi</span></a>
+          </div>
+          <div class="w-full pt-4 "><a href="https://aksatopup.my.id/id-id/logout" class="flex w-full items-center gap-3 rounded-md bg-gradient-to-r px-3 py-2 text-sm font-medium text-destructive hover:from-muted/50" style="outline: none;"><svg width="24" height="24" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5">
+                <path opacity="0.4" d="M15.0775 7.87065V6.98816C15.0775 5.06457 13.5178 3.50391 11.5933 3.50391H6.98328C5.05969 3.50488 3.5 5.06457 3.5 6.98816V17.5119C3.5 19.4365 5.05969 20.9962 6.98328 20.9962H11.603C13.5217 20.9962 15.0765 19.4414 15.0775 17.5226V16.6314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M21.5001 12.2487H10.1152M21.5001 12.2487L18.7314 9.49219M21.5001 12.2487L18.7314 15.0061" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg><span class="hidden md:block">Keluar</span></a></div>
+        </nav>
+      </aside>
+    </div>    <div class="col-span-8 sm:col-span-7 sm:col-start-2 md:col-span-7 md:col-start-3">
+      <div>
+        <div class="pb-8 sm:flex sm:items-center">
+          <div class="sm:flex-auto">
+            <h1 class="text-base font-semibold leading-6 text-foreground">Riwayat Transaksi</h1>
+            <p class="text-murky-200 mt-2 text-sm">Menampilkan data riwayat transaksi yang telah Kamu lakukan selama periode yang dipilih.</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="grid gap-4">
+            <div class="border-murky-600 flex flex-col gap-2 rounded-xl border p-4 md:p-6">
+              <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+                <div class="col-span-2 flex flex-col gap-2">
+                  <div class="text-xs">Cari</div>
+                  <div class="flex flex-col items-start"><input class="relative block w-full appearance-none rounded-lg border border-border bg-input px-3 py-2 text-xs text-foreground placeholder-muted-foreground focus:z-10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-75 !rounded-md" type="text" placeholder="Search..." id="table-search"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="-mx-4 overflow-x-auto ring-1 ring-muted sm:mx-0 sm:rounded-lg">
+            <table class="min-w-full divide-y divide-muted" id="history">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="1" class="table-cell whitespace-nowrap px-3 py-3.5 text-left text-xs font-semibold text-foreground first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell">
+                    <div class="cursor-pointer select-none flex whitespace-nowrap items-center justify-between">Nomor Invoice</div>
+                  </th>
+                  <th scope="col" colspan="1" class="table-cell whitespace-nowrap px-3 py-3.5 text-left text-xs font-semibold text-foreground first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell">
+                    <div class="">Trx ID</div>
+                  </th>
+                  <th scope="col" colspan="1" class="table-cell whitespace-nowrap px-3 py-3.5 text-left text-xs font-semibold text-foreground first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell">
+                    <div class="">Item</div>
+                  </th>
+                  <th scope="col" colspan="1" class="table-cell whitespace-nowrap px-3 py-3.5 text-left text-xs font-semibold text-foreground first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell">
+                    <div class="">User Input</div>
+                  </th>
+                  <th scope="col" colspan="1" class="table-cell whitespace-nowrap px-3 py-3.5 text-left text-xs font-semibold text-foreground first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell">
+                    <div class="cursor-pointer select-none flex whitespace-nowrap items-center justify-between">Harga</div>
+                  </th>
+                  <th scope="col" colspan="1" class="table-cell whitespace-nowrap px-3 py-3.5 text-left text-xs font-semibold text-foreground first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell">
+                    <div class="cursor-pointer select-none flex whitespace-nowrap items-center justify-between">Tanggal</div>
+                  </th>
+                  <th scope="col" colspan="1" class="table-cell whitespace-nowrap px-3 py-3.5 text-left text-xs font-semibold text-foreground first:table-cell first:pl-4 sm:first:pl-6 first:pr-4 last:relative last:table-cell sm:last:pr-6 [&amp;:nth-last-child(2)]:table-cell">
+                    <div class="">Status</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="history-body">
+                              </tbody>
+            </table>
+          </div>
+          <nav class="flex items-center justify-between" aria-label="Pagination">
+            <div class="hidden sm:block">
+              <p class="text-sm text-foreground" id="paging-info"></p>
+            </div>
+            <div class="flex flex-1 justify-between sm:justify-end">
+              <button type="button" disabled="" class="hover:bg-murky-700 relative inline-flex items-center  rounded-md bg-muted px-4 py-2 text-sm font-semibold text-foreground ring-1 ring-inset ring-transparent focus-visible:outline-offset-0 disabled:cursor-not-allowed disabled:opacity-75" id="prev-button">Sebelumnya</button>
+              <div class="flex items-center justify-center space-x-2"><button type="button" class="relative ml-3 inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-semibold text-foreground ring-1 ring-inset ring-transparent focus-visible:outline-offset-0 disabled:cursor-not-allowed disabled:opacity-75 hover:bg-primary-400 bg-primary" id="infoPage">1</button></div>
+              <button type="button" disabled="" class="hover:bg-murky-700 relative ml-3 inline-flex items-center  rounded-md bg-muted px-4 py-2 text-sm font-semibold text-foreground ring-1 ring-inset ring-transparent focus-visible:outline-offset-0 disabled:cursor-not-allowed disabled:opacity-75" id="next-button">Selanjutnya</button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const rows = Array.from(document.querySelectorAll("#history tbody tr"));
+    const searchInput = document.getElementById("table-search");
+    const prevBtn = document.getElementById("prev-button");
+    const nextBtn = document.getElementById("next-button");
+    const pagingInfo = document.getElementById("paging-info");
+    const infoPage = document.getElementById("infoPage");
+    const tbody = document.getElementById("history-body");
+
+    let currentPage = 0;
+    const rowsPerPage = 10;
+    let filteredRows = [...rows];
+
+    function updateTable() {
+      const start = currentPage * rowsPerPage;
+      const end = start + rowsPerPage;
+      tbody.innerHTML = "";
+    
+      const pageRows = filteredRows.slice(start, end);
+      pageRows.forEach(row => tbody.appendChild(row));
+    
+      const currentPageDisplay = currentPage + 1;
+    
+      // Info
+      if (filteredRows.length === 0) {
+        pagingInfo.innerHTML = `Tidak ada hasil ditemukan.`;
+      } else {
+        pagingInfo.innerHTML = `
+          Menampilkan <span class="font-medium">${start + 1}</span> sampai 
+          <span class="font-medium">${Math.min(end, filteredRows.length)}</span> 
+          dari <span class="font-medium">${filteredRows.length}</span> hasil `;
+        infoPage.innerHTML = `${currentPageDisplay}`;
+      }
+    
+      prevBtn.disabled = currentPage === 0;
+      nextBtn.disabled = end >= filteredRows.length;
+    }
+
+    searchInput.addEventListener("input", function () {
+      const query = this.value.toLowerCase();
+
+      filteredRows = rows.filter(row =>
+        row.innerText.toLowerCase().includes(query)
+      );
+      currentPage = 0;
+      updateTable();
+    });
+
+    prevBtn.addEventListener("click", function () {
+      if (currentPage > 0) {
+        currentPage--;
+        updateTable();
+      }
+    });
+
+    nextBtn.addEventListener("click", function () {
+      if ((currentPage + 1) * rowsPerPage < filteredRows.length) {
+        currentPage++;
+        updateTable();
+      }
+    });
+
+    updateTable();
+  });
+</script>
+<script>
+  function salinId() {
+    const teks = document.getElementById("textId").textContent;
+    navigator.clipboard.writeText(teks)
+      .then(() => {
+        showToastrJquery('success', 'Berhasil di copy ke clipboard!');
+      })
+      .catch(err => {
+        showToastrJquery('error', 'Gagal menyalin ke clipboard!');
+      });
+  }
+  
+  function showToastrJquery(type, message, scrollTo = null) {
+    toastr[type](message, '', {
+      positionClass: 'toast-top-center',
+      timeOut: 3000
+    });
+    if (scrollTo) {
+      $('html,body').animate({ scrollTop: $(scrollTo).offset().top - 150 }, 400);
+    }
+  }
+</script>
+
+    </div>
+  </div>
+
+  <div class="mt-12 bg-gradient-to-b from-transparent from-[70%] to-secondary"><img src="https://aksatopup.my.id/public/img/web/273529.jpg" alt="" width="700" height="475" style="width:100%;height:auto" class="object-cover object-bottom"></div>
+  </div>
+
+  <footer class="bg-secondary print:hidden" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="container py-12 pb-8">
+      <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+        <div class="space-y-8"> <img alt="Logo" fetchpriority="high" width="500" height="500" decoding="async" data-nimg="1" class="h-16 w-auto" style="color:transparent" src="https://aksatopup.my.id/public/img/web/274577.png">
+          <p class="text-sm leading-6 text-secondary-foreground">No #1 supplier top up game & voucher terlaris, murah, aman legal 100% buka 24 Jam dengan payment terlengkap Indonesia</p>
+          <div class="flex space-x-6">
+            <a href="mailto:cs@aksatopup.my.id" class="text-murky-400 hover:text-murky-500" style="outline:none" target="_blank" rel="noopener noreferrer"><span class="sr-only">Email</span><img alt="Logo" fetchpriority="high" width="24" height="24" decoding="async" data-nimg="1" style="color:transparent" src="https://www.bangjeff.com/_next/image?url=https%3A%2F%2Fcdn.bangjeff.com%2F8f4f6f16-4763-4733-a595-c37c9aae94f1.webp&w=48&q=75"></a>
+            <a href="https://www.instagram.com/akstarss" class="text-murky-400 hover:text-murky-500" style="outline:none" target="_blank" rel="noopener noreferrer"><span class="sr-only">Instagram</span><img alt="Logo" fetchpriority="high" width="24" height="24" decoding="async" data-nimg="1" style="color:transparent" src="https://www.bangjeff.com/_next/image?url=https%3A%2F%2Fcdn.bangjeff.com%2F509573ad-c36d-467e-884a-72a984a95330.webp&w=48&q=75"></a>
+            <a href="https://t.me/takaaach" class="text-murky-400 hover:text-murky-500" style="outline:none" target="_blank" rel="noopener noreferrer"><span class="sr-only">Telegram</span><img alt="Logo" fetchpriority="high" width="24" height="24" decoding="async" data-nimg="1" style="color:transparent" src="https://www.bangjeff.com/_next/image?url=https%3A%2F%2Fcdn.bangjeff.com%2Ff233c760-d50d-40f6-a425-800559888c18.webp&w=48&q=75"></a>
+          </div>
+          <div class="flex space-x-6">
+            <a href="https://www.instagram.com/akstarss" class="text-murky-400 hover:text-murky-500" style="outline:none" target="_blank" rel="noopener noreferrer"><span class="sr-only">Instagram</span><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@-" class="text-murky-400 hover:text-murky-500" style="outline:none" target="_blank" rel="noopener noreferrer"><span class="sr-only">Tiktok</span><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-2">
+          <div>
+            <h3 class="text-sm font-semibold leading-6 text-primary">Peta Situs</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li><a class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" href="https://aksatopup.my.id/"><span>Beranda</span></a></li>
+              <li><a class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" href="https://aksatopup.my.id/id-id/sign-in"><span>Masuk</span></a></li>
+              <li><a class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" href="https://aksatopup.my.id/id-id/invoices"><span>Cek Transaksi</span></a></li>
+              <li><a class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" href="https://aksatopup.my.id/id-id/reviews"><span>Ulasan</span></a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold leading-6 text-primary">Kemitraan</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li><a class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" href="https://aksatopup.my.id/id-id/reseller"><span>Price List</span></a></li>
+              <li><a class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" href="https://aksatopup.my.id/id-id/docs"><span>Dokumentasi API</span></a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold leading-6 text-primary">Dukungan</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li><a href="https://wa.me/089654791642" class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" target="_blank" rel="noopener noreferrer"><span>Whatsapp</span></a></li>
+              <li><a href="https://wa.me/6289654791642" class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" target="_blank" rel="noopener noreferrer"><span>Whatsapp CS</span></a></li>
+              <li><a href="mailto:cs@aksatopup.my.id" class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" target="_blank" rel="noopener noreferrer"><span>Email</span></a></li>
+              <li><a class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" href="https://aksatopup.my.id/id-id/contact-us"><span>Formulir Laporan</span></a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold leading-6 text-primary">Legalitas</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li><a class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" href="https://aksatopup.my.id/id-id/privacy-policy"><span>Kebijakan Privasi</span></a></li>
+              <li><a class="flex items-center gap-2 text-sm leading-6 text-secondary-foreground hover:text-primary/75" style="outline:none" href="https://aksatopup.my.id/id-id/terms-and-condition"><span>Syarat &amp; Ketentuan</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-16 flex items-center justify-between border-t border-background/50 pt-8 sm:mt-20 lg:mt-24">
+        <p class="text-xs leading-5 text-secondary-foreground">©
+          <!-- -->2024
+          <!-- -->
+          <!-- -->AKSA          <!-- -->. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="fixed bottom-0 right-4 z-50 inline-flex items-center space-x-2.5 rounded-t-lg bg-primary pb-2 pl-3 pr-3 pt-3 uppercase text-primary-foreground duration-300 ease-in-out hover:bg-primary md:pr-5" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headset h-4 w-4">
+      <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"></path>
+      <path d="M21 16v2a4 4 0 0 1-4 4h-5"></path>
+    </svg><span class="hidden text-xs font-medium md:inline">Customer Service</span></button>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+    </div>
+    <div class="offcanvas-body">
+      <div class="fixed bottom-0 right-0 z-50 inline-flex items-center space-x-2.5 rounded-t-lg pb-2 pl-3 pr-3 pt-3 duration-300 ease-in-out md:pr-5">
+        <div class="z-50 overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md" style="width:200px">
+          <div class="w-full">
+            <div class="absolute top-0 z-40 block pr-4 pt-4"><button type="button" class="rounded-md bg-background text-foreground hover:text-foreground/75 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background" data-bs-dismiss="offcanvas" aria-label="Close"><span class="sr-only">Close</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg></button></div>
+            <div class="relative flex cursor-pointer select-none items-center rounded-sm px-2 text-sm outline-none transition-colors focus:bg-accent data-[disabled]:pointer-events-none opacity-50 space-x-2.5 text-sm/6 hover:text-primary/75 justify-between" style="justify-content: flex-end;">Customer Service</div>
+          </div>
+          <div class="-mx-1 my-1 h-px bg-muted"></div>
+          <hr>
+          <div>
+            <div class="w-full">
+              <a href="https://aksatopup.my.id/id-id/contact-us" class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent data-[disabled]:pointer-events-none opacity-50 space-x-2.5 text-sm/6 hover:text-primary/75 justify-between" target="_blank" rel="noopener noreferrer" style="justify-content: flex-end;"><span>Formulir Laporan</span></a>
+              <a href="mailto:cs@aksatopup.my.id" class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent data-[disabled]:pointer-events-none opacity-50 space-x-2.5 text-sm/6 hover:text-primary/75" target="_blank" rel="noopener noreferrer" style="justify-content: flex-end;"><span>Email</span></a>
+              <a href="https://wa.me/6289654791642" class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent data-[disabled]:pointer-events-none opacity-50 space-x-2.5 text-sm/6 hover:text-primary/75" target="_blank" rel="noopener noreferrer" style="justify-content: flex-end;"><span>Whatsapp CS</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const lazyImages = document.querySelectorAll('.lazy-image');
+
+      const lazyLoad = target => {
+        const io = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              const src = img.getAttribute('data-src');
+
+              img.setAttribute('src', src);
+              img.classList.add('loaded');
+              observer.disconnect();
+            }
+          });
+        });
+
+        io.observe(target);
+      };
+
+      lazyImages.forEach(lazyLoad);
+
+      const searchInputDesktop = document.getElementById('searchInputDesktop');
+      const searchInputMobile = document.getElementById('searchInputMobile');
+      const searchResultsDesktop = document.getElementById('searchResultsDesktop');
+      const searchResultsMobile = document.getElementById('searchResultsMobile');
+      const containerSearchDesktop = document.getElementById('containerSearchDesktop');
+      const containerSearchAndroid = document.getElementById('containerSearchAndroid');
+
+      function handleSearch(keyword, searchResultsElement, containerSearch) {
+        if (keyword === '') {
+          searchResultsElement.innerHTML = '';
+          containerSearch.style.display = 'none';
+          return;
+        }
+
+        function highlightKeyword(text, keyword) {
+          const regex = new RegExp(`(${keyword})`, 'ig');
+          return text.replace(regex, '<span class="text-primary">$1</span>');
+        }
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://aksatopup.my.id/id-id/search-games', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            let data;
+            try {
+              data = JSON.parse(xhr.responseText);
+            } catch (e) {
+              console.error('Gagal parse JSON:', xhr.responseText);
+              return;
+            }
+
+            searchResultsElement.innerHTML = '';
+
+            if (data.results.length > 0) {
+              data.results.forEach(function(result) {
+                const imagePath = 'https://aksatopup.my.id/public/img/games/' + result.gambar;
+                const url = 'https://aksatopup.my.id/id-id/' + result.slug;
+
+                const div = document.createElement('div');
+                div.className = 'search-result';
+
+                div.innerHTML = `
+                            <a class="flex items-center gap-4 rounded-md" href="${url}" style="outline: none;">
+                              <img alt="${result.nama}" loading="lazy" width="300" height="300" decoding="async" data-nimg="1" class="aspect-square w-16 rounded-2xl object-cover" sizes="100vw" src="${imagePath}" style="color: transparent;">
+                              <div class="flex flex-col gap-[2px] text-secondary-foreground">
+                                <p class="font-bold">${highlightKeyword(result.nama, keyword)}</p>
+                                <p class="text-sm">${result.sub_nama}</p>
+                              </div>
+                            </a>
+                        `;
+
+                searchResultsElement.appendChild(div);
+              });
+              searchResultsElement.style.display = 'block';
+              containerSearch.style.display = 'block';
+            } else {
+              searchResultsElement.innerHTML = '<div class="flex h-32 flex-col items-center justify-center gap-2 p-4 text-sm font-semibold"><p class="text-xl font-bold">Produk yang dicari tidak ditemukan</p><p>Pastikan nama produk yang dicari sudah benar</p></div>';
+              searchResultsElement.style.display = 'block';
+              containerSearch.style.display = 'block';
+            }
+          } else {
+            console.error('Gagal fetch: status', xhr.status);
+          }
+        };
+
+        xhr.onerror = function() {
+          console.error('Request error!');
+        };
+
+        xhr.send('keyword=' + encodeURIComponent(keyword));
+      }
+
+      searchInputDesktop.addEventListener('input', function() {
+        handleSearch(searchInputDesktop.value.trim(), searchResultsDesktop, containerSearchDesktop);
+      });
+
+      searchInputMobile.addEventListener('input', function() {
+        handleSearch(searchInputMobile.value.trim(), searchResultsMobile, containerSearchAndroid);
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-desktop')) {
+          searchResultsDesktop.style.display = "none";
+          containerSearchDesktop.style.display = "none";
+        }
+        if (!e.target.closest('.search-mobile')) {
+          searchResultsMobile.style.display = "none";
+          containerSearchAndroid.style.display = "none";
+        }
+      });
+    })
+  </script>
+  <script>
+    function toggleSearchContainer() {
+      const searchContainer = document.getElementById('searchContainer');
+      const toggleIcon = document.getElementById('toggleIcon');
+      const searchInput = document.getElementById('searchInputMobile');
+
+      if (!searchContainer || !toggleIcon) return;
+
+      searchContainer.classList.toggle('hidden');
+
+      if (searchContainer.classList.contains('hidden')) {
+        toggleIcon.innerHTML = '<circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path>';
+      } else {
+        toggleIcon.innerHTML = '<path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>';
+        if (searchInput) {
+          searchInput.focus();
+        } else {
+          console.warn('searchInputMobile tidak ditemukan di DOM!');
+        }
+      }
+    }
+
+
+    function toggleProfilContainer() {
+      const searchContainer = document.getElementById('user-dropdown-mobile');
+
+      searchContainer.classList.toggle('hidden');
+
+      if (searchContainer.classList.contains('hidden')) {
+        toggleIcon.innerHTML = '';
+      } else {
+        toggleIcon.innerHTML = '';
+      }
+    }
+  </script>
+</body>
+
+</html>
